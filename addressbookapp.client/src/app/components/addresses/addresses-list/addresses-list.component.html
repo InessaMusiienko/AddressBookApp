@@ -1,0 +1,22 @@
+<div class="container my-5">
+  <h1 class="mb-3">Address Book</h1>
+
+  <table class="table" *ngIf="addresses && addresses.length > 0">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Surname</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let address of addresses">
+        <td>{{ address.nameTitle }}</td>
+        <td>{{ address.nameFirst }}</td>
+        <td>{{ address.nameLast }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!addresses || addresses.length <= 0">No addresses found.</p>
+</div>
