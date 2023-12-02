@@ -6,7 +6,8 @@ const routes: Routes = [
   {
     path: '',
     component: AddressesListComponent 
-  }];
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,22 +1,21 @@
-<div class="container my-5">
-  <h1 class="mb-3">Address Book</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
 
-  <table class="table" *ngIf="addresses && addresses.length > 0">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Name</th>
-        <th>Surname</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr *ngFor="let address of addresses">
-        <td>{{ address.nameTitle }}</td>
-        <td>{{ address.nameFirst }}</td>
-        <td>{{ address.nameLast }}</td>
-      </tr>
-    </tbody>
-  </table>
-  <p *ngIf="!addresses || addresses.length <= 0">No addresses found.</p>
+<div class="main">
+  <mat-card *ngFor="let contact of addresses">
+    <mat-card-header>
+      <img mat-card-avatar src="{{ contact.picture }}" alt="Contact photo" />
+      <mat-card-title>{{ contact.nameTitle }} {{ contact.nameFirst }} {{ contact.nameLast }}</mat-card-title>
+      <mat-card-actions align="end">
+        <button mat-stroked-button
+                matTooltip="Info about the contact">
+          <mat-icon aria-label="Example info icon">info</mat-icon>
+        </button>
+        <!--<button mat-stroked-button (click)="addProductToCart(p)">Add to cart</button>-->
+      </mat-card-actions>
+    </mat-card-header>
+    <mat-card-content>{{ contact.phone }}</mat-card-content>
+    <mat-card-footer>adress here</mat-card-footer>    
+  </mat-card>
 </div>
