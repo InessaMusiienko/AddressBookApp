@@ -1,0 +1,34 @@
+#popup {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  width: 380px;
+  height: 360px;
+}
+
+.info {
+  background-color: #F1F1F1;
+  padding: 5px;
+  margin: 5px;
+}
+
+h2{
+    text-align:center;
+}
+
+.details{
+    color: cornflowerblue;
+}
+
+p{
+    display: inline-block;
+    padding: 3px;
+}
+
+button {
+  display: inline-block;
+  background-color: white;
+  border:none;
+  top: 90%;
+  right: 5%;
+}

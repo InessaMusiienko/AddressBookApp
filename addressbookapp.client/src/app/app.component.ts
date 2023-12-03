@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddressesListComponent } from './components/addresses/addresses-list/addresses-list.component';
 
 interface WeatherForecast {
   date: string;

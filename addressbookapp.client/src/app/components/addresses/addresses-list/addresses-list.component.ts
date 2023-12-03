@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Address } from '../../../models/address.model';
-
+import { MatDialog } from '@angular/material/dialog';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 @Component({
   selector: 'app-addresses-list',
@@ -62,7 +63,15 @@ export class AddressesListComponent implements OnInit {
     }
   ];
   
-  constructor() { }
+  constructor(private dialogRef: MatDialog) { }
+
+  openDialog() {
+    this.dialogRef.open(PopUpComponent, {
+      width: '380px',
+      /*height: '360px',*/
+      data: { name: 'Sam' },
+    });
+  }
 
   ngOnInit(): void {
 
