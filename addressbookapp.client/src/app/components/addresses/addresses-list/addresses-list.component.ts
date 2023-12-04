@@ -10,8 +10,6 @@ import { PopUpComponent } from './pop-up/pop-up.component';
 })
 export class AddressesListComponent implements OnInit {
 
-  //url = 'https://randomuser.me/api/?results=50';
-
   addresses: Address[] = [
     {
       gender: 'female',
@@ -65,7 +63,7 @@ export class AddressesListComponent implements OnInit {
   
   constructor(private dialogRef: MatDialog) { }
 
-  openDialog() {
+  openDialog(name: string) {
     this.dialogRef.open(PopUpComponent, {
       width: '380px',
       /*height: '360px',*/
