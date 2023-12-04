@@ -10,20 +10,31 @@ namespace AddressBookApp.Server.Controllers
     public class AddressBookController: Controller
     {
         [HttpGet]
-        public ActionResult<Root> GetAllContacts()
+        public ActionResult<List<Contact>> GetAllContacts()
         {
             var data = new Root();
-            try
-            {
-                string url = "https://randomuser.me/api/?results=1";
+                string url = "https://randomuser.me/api/?results=10";
                 var json = new WebClient().DownloadString(url);
                 data = JsonConvert.DeserializeObject<Root>(json);
-            }
-            catch(Exception ex)
+            
+            return data.results.Select(x => new Contact
             {
-
-            }
-            return data;
+                Gender = x.gender,
+                NameTitle = x.name.title,
+                NameFirst = x.name.first,
+                NameLast = x.name.last,
+                StreetNumber = (x.location.street.number).ToString(),
+                StreetName = x.location.street.name,
+                City = x.location.city,
+                State = x.location.state,
+                Country = x.location.country,
+                PostCode = x.location.postcode,
+                Email = x.email,
+                Phone = x.phone,
+                Cell = x.cell,
+                Picture = x.picture.medium,
+                Nat = x.nat
+            }).ToList();
         }
     }
 }
