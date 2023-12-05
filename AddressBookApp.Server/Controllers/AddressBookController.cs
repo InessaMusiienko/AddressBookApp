@@ -6,7 +6,7 @@ using System.Net;
 namespace AddressBookApp.Server.Controllers
 {
     [ApiController]
-    [Route("[controller]/[action]")]
+    [Route("/[controller]/[action]")]
     public class AddressBookController: Controller
     {
         [HttpGet]

@@ -10,23 +10,25 @@ import { Address } from './models/address.model';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  public contacts: Address[] = [];
-  constructor(private http: HttpClient) {}
-  
-  ngOnInit() {
-    this.getContacts();
-  }
+  //public contacts: Address[] = [];
+  //constructor(private http: HttpClient) {}
 
-  getContacts() {
-    this.http.get<Address[]>('/addressbook/getallcontacts').subscribe(
-      (result) => {
-        this.contacts = result;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
+  //ngOnInit() {
+  //  this.getContacts();
+  //}
+
+  //getContacts() {
+  //  this.http.get<Address[]>('/addressbook/getallcontacts').subscribe(
+  //    (result) => {
+  //      this.contacts = result;
+  //    },
+  //    (error) => {
+  //      console.error(error);
+  //    }
+  //  );
+  //}
+
+  ngOnInit() { }
 
   title = 'addressbookapp.client';
 }
