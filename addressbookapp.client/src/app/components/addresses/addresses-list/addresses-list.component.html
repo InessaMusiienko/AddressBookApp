@@ -8,7 +8,7 @@
       <img mat-card-avatar src="{{ contact.picture }}" alt="Contact photo" />
       <mat-card-title>{{ contact.nameTitle }} {{ contact.nameFirst }} {{ contact.nameLast }}</mat-card-title>
       <mat-card-actions align="end">
-        <button (click)="openDialog(contact.NameTitle)"
+        <button (click)="openDialog(contact.id)"
                 mat-stroked-button
                 matTooltip="Info about the contact">
           <mat-icon aria-label="Example info icon">info</mat-icon>

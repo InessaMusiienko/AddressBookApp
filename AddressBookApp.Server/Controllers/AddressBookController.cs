@@ -6,19 +6,23 @@ using System.Net;
 namespace AddressBookApp.Server.Controllers
 {
     [ApiController]
+    [Produces("application/json")]
     [Route("/[controller]/[action]")]
     public class AddressBookController: Controller
     {
+        string url = "https://randomuser.me/api/?results=10";
+        List<Contact> contacts = new List<Contact>();
+
         [HttpGet]
         public ActionResult<List<Contact>> GetAllContacts()
         {
-            var data = new Root();
-                string url = "https://randomuser.me/api/?results=10";
+                var data = new Root();
                 var json = new WebClient().DownloadString(url);
                 data = JsonConvert.DeserializeObject<Root>(json);
             
-            return data.results.Select(x => new Contact
+            contacts = data.results.Select(x => new Contact
             {
+                Id = Guid.NewGuid(),
                 Gender = x.gender,
                 NameTitle = x.name.title,
                 NameFirst = x.name.first,
@@ -35,6 +39,16 @@ namespace AddressBookApp.Server.Controllers
                 Picture = x.picture.medium,
                 Nat = x.nat
             }).ToList();
+
+            return contacts;
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<Contact> GetContact(string id)
+        {
+            var contact = contacts.FirstOrDefault(x => x.Id.ToString() == id);
+
+            return contact;
         }
     }
 }

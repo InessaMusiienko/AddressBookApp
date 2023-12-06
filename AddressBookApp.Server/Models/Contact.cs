@@ -2,6 +2,7 @@
 {
     public class Contact
     {
+        public Guid Id { get; set; }
         public string Gender { get; set; } = null!;
         public string NameTitle { get; set; } = null!;
         public string NameFirst { get; set; } = null!;

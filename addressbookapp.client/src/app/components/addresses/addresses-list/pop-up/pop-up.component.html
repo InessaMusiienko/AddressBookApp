@@ -1,26 +1,28 @@
 <div id="popup">
   
-  <h2>Miss {{ inputdata.name }} Nichols</h2>
+  <h2>{{ inputdata.contact.nameTitle }} {{ inputdata.contact.nameFirst }} {{ inputdata.contact.nameLast }}</h2>
 
 
   <div class="info">
     <p>Address</p>
-    <p class="details"> 8929 Valwood Pkwy, Billings, Michigan, United States, 63104
+    <p class="details">
+      {{ inputdata.contact.streetNumber }}
+      {{ inputdata.contact.streetName }}, {{ inputdata.contact.city }}, {{ inputdata.contact.country }}, {{ inputdata.contact.state }}, {{ inputdata.contact.postcode }}
     </p>
   </div>
 
   <div class="info">
-    <p>email</p> <p class="details">jennie.nichols</p>
+    <p>email</p> <p class="details">{{ inputdata.contact.email }}</p>
   </div>
   
   <div class="info">
-      <p>phone</p> <p class="details">(272) 790-0888</p>
-      <p>cell</p> <p class="details">(489) 330-2385</p>
+      <p>phone</p> <p class="details">{{ inputdata.contact.phone }}</p>
+      <p>cell</p> <p class="details">{{ inputdata.contact.cell }}</p>
     
   </div>
 
   <div class="info">
-    <p>nat</p> <p class="details">US</p>
+    <p>nat</p> <p class="details">{{ inputdata.contact.nat }}</p>
   </div>
 
   <div mat-dialog-actions>
