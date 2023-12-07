@@ -10,19 +10,20 @@
   background-color: #F1F1F1;
   padding: 5px;
   margin: 5px;
+
 }
 
 h2{
     text-align:center;
 }
 
-.details{
-    color: cornflowerblue;
+.details {
+  color: cornflowerblue;
 }
 
-p{
-    display: inline-block;
-    padding: 3px;
+p {
+  display: inline-block;
+  padding: 3px;
 }
 
 button {

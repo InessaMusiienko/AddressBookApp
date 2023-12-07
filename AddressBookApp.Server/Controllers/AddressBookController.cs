@@ -42,13 +42,5 @@ namespace AddressBookApp.Server.Controllers
 
             return contacts;
         }
-
-        [HttpGet("{id}")]
-        public ActionResult<Contact> GetContact(string id)
-        {
-            var contact = contacts.FirstOrDefault(x => x.Id.ToString() == id);
-
-            return contact;
-        }
     }
 }

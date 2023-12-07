@@ -2,6 +2,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
 
+<!DOCTYPE html>
+<nav class="navbar navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand">Address Book</a>
+    <form class="d-flex">
+      <input onchange="search(filter.value)" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #filter>
+      <button (click)="search(filter.value)" class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+
 <div class="main">
   <mat-card *ngFor="let contact of contacts">
     <mat-card-header>
@@ -13,7 +25,6 @@
                 matTooltip="Info about the contact">
           <mat-icon aria-label="Example info icon">info</mat-icon>
         </button>
-        <!--<button mat-stroked-button (click)="addProductToCart(p)">Add to cart</button>-->
       </mat-card-actions>
     </mat-card-header>
     <mat-card-content>{{ contact.phone }}</mat-card-content>

@@ -15,7 +15,7 @@ export class AddressesListComponent implements OnInit {
 
 
   public contacts: any;
-  constructor(private dialogRef: MatDialog, private app: AppComponent, private http: HttpClient) {
+  constructor(private dialogRef: MatDialog, public app: AppComponent, private http: HttpClient) {
     this.contacts = [];
   }
   
@@ -44,5 +44,16 @@ export class AddressesListComponent implements OnInit {
       }
     );
   }
+  
 
+  search(text: string) {
+    
+    if (!text) {
+      this.contacts = this.getContacts;
+      return;
+    }
+    let z = this.contacts as Address[];
+    this.contacts = z.filter((x) => x.nameFirst.toLowerCase().includes(text.toLowerCase()) ||
+      x.nameLast.toLowerCase().includes(text.toLowerCase()));      
+  }
 }
